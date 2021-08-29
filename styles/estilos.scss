@@ -1,0 +1,189 @@
+/** Normalize **/
+@import "base/normalize.scss";
+
+// Mixins
+@mixin pacotes {
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    /** Pacote individual **/
+    .pacote {
+        width: 381px;
+        height: 286px;
+        margin: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        div {
+           margin: 20px 15px; 
+        }
+    }
+}
+
+@mixin h6-desc {
+    margin: 0;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@mixin desc-pacote {
+    color: #fff;
+
+    h5 {
+        margin: 0;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+    }
+}
+
+/** geral **/
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#principal {
+    width: 90vw;
+    margin: 10px 0;
+}
+
+/** Sections **/
+.secao-viagens {
+    width: 100%;
+    margin-bottom: 40px;
+
+    h3 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 20px;
+        margin-left: 25px;
+    }
+}
+
+
+.pacotes-brasil {
+    @include pacotes;
+
+    .p1 {
+        background-image: url("../images/rio.png");
+    }
+
+    .p2 {
+        background-image: url("../images/sp.png");
+    }
+
+    .p3 {
+        background-image: url("../images/salvador.png");
+    }
+
+    .p4 {
+        background-image: url("../images/maragogi.png");
+    }
+
+    .p5 {
+        background-image: url("../images/p-forte.png");
+    }
+
+    .p6 {
+        background-image: url("../images/gramado.png");
+    }
+}
+
+/** Pacotes de viagens **/
+.pacotes-mundo {
+    @include pacotes;
+
+    .p1 {
+        background-image: url("../images/ny.png");
+    }
+
+    .p2 {
+        background-image: url("../images/i-aventura.png");
+    }
+
+    .p3 {
+        background-image: url("../images/inglaterra.png");
+    }
+
+    .p4 {
+        background-image: url("../images/paris.png");
+    }
+
+    .p5 {
+        background-image: url("../images/b-aires.png");
+    }
+
+    .p6 {
+        background-image: url("../images/maldivas.png");
+    }
+}
+
+/** Descricao de um pacote **/
+.local {
+    text-align: left;
+    @include desc-pacote;
+
+    h6 {
+        @include h6-desc;
+        font-size: 17px;
+        line-height: 20px;
+    }
+}
+
+.preco {
+    text-align: right;
+    @include desc-pacote;
+
+    h6 {
+        @include h6-desc;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+/** Media-Queries **/
+@mixin pacotes-mobile {
+    z-index: 2;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    .pacote {
+        flex: none;
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 500px) {
+    .secao-viagens {
+        text-align: center;
+
+        h3 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 28px;
+            margin-left: 0;
+        }
+    }
+
+    .pacotes-brasil {
+        @include pacotes-mobile;
+    }
+
+    .pacotes-mundo {
+        @include pacotes-mobile;
+    }
+}
